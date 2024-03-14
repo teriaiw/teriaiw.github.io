@@ -1,0 +1,61 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));;
+    gap: 20px;
+    min-height: 100vh;
+    margin: 0 30px 0 30px;
+    background-color: #ffffe6;
+  }
+  
+  .gridContainer > div {
+    background-color: #ffffe6;
+    margin: 120px 0 120px 0;
+  }
+  
+  .item1 {
+    grid-column: 1 / span 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .item2 {
+    grid-column: 2 / span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+  
+  .item3 {
+    grid-column: 6 / span 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .item4 {
+    grid-column: 7 / span 5;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+  }
+  
+  .item5 {
+    grid-column: 12 / span 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  

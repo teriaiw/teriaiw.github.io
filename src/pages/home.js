@@ -5,6 +5,8 @@ import Socials from '../components/socials';
 import { createContext } from 'react';
 import { useState } from 'react';
 
+import styles from './home.module.css';
+
 export const terminalContext = createContext(null);
 
 function Home() {
@@ -13,11 +15,11 @@ function Home() {
     return (
       <terminalContext.Provider value={{terminalMessage, setTerminalMessage}}>
         <div className="App">
-          <div className="grid-container">
-            <div className="item1" />
+          <div className={styles.gridContainer}>
+            <div className={styles.item1} />
             
             {/**Intro */}
-            <div className="item2">
+            <div className={styles.item2}>
               <h1>Hello World,</h1>
               <h2>I'm Teri</h2>
     
@@ -25,18 +27,18 @@ function Home() {
               <Menu />
             </div>
     
-            <div className="item3" />
+            <div className={styles.item3} />
     
             {/**Interactive Terminal */}
-            <div className="item4 content">
-              <div class="card-container">
+            <div className={`${styles.item4} ${styles.content}`}>
+              <div className={styles.cardContainer}>
                 <p>cmd for me</p>
                 <Socials />
               </div>
               <Terminal />
             </div>
     
-            <div className="item5" />
+            <div className={styles.item5} />
           </div>
 
           <Outlet />
