@@ -1,0 +1,36 @@
+.dummyContainer {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    background-color: rgb(180, 180, 224);
+}
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalCloseButton {
+    position:absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+	color: inherit;
+	border: none;
+    cursor: pointer;
+}
+
+.modalHeader {
+    text-align: left;
+    font-size: 50px;
+    color: white;
+}
+
+.modalContent {
+    margin: 50px 100px 50px 100px;
+    font-size: 25px;
+    color: white;
+    font-family: "Pixelify Sans";
+}
