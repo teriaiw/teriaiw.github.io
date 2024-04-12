@@ -6,11 +6,17 @@ import WebFont from 'webfontloader';
 
 import './App.css';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Home from './pages/home';
 import About from './pages/about';
 import Skills from './pages/skills';
 import Projects from './pages/projects';
+import PageMenu from './pages/PageMenu';
+
+import { createContext } from 'react';
+import { useState } from 'react';
+
+export const menuContext = createContext(null);
 
 function App() {
   useEffect(() => {
@@ -21,15 +27,27 @@ function App() {
     });
    }, []);
 
+  let [activePage, setActivePage] = useState("");
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/my-life" element={<About />} />
-        <Route path="/my-skills" element={<Skills />} />
-        <Route path="/my-projects" element={<Projects />} />
-      </Routes>
-    </BrowserRouter>
+    <menuContext.Provider value={{activePage, setActivePage}}>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            element={(
+              <>
+                <PageMenu />
+                <Outlet />
+              </>
+            )}>
+              <Route path="/my-life" element={<About />} />
+              <Route path="/my-skills" element={<Skills />} />
+              <Route path="/my-projects" element={<Projects />} />
+          </Route>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </menuContext.Provider>
   );
 }
 

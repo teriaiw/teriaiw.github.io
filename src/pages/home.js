@@ -4,6 +4,8 @@ import Menu from '../menu';
 import Socials from '../components/socials';
 import { createContext } from 'react';
 import { useState } from 'react';
+import { menuContext } from '../App';
+import { useContext } from "react";
 
 import styles from './home.module.css';
 
@@ -11,6 +13,8 @@ export const terminalContext = createContext(null);
 
 function Home() {
   let [terminalMessage, setTerminalMessage] = useState("Teri's Site Loaded");
+  const {setActivePage} = useContext(menuContext);
+  setActivePage("home");
 
     return (
       <terminalContext.Provider value={{terminalMessage, setTerminalMessage}}>

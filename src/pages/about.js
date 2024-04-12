@@ -1,12 +1,15 @@
 import styles from './about.module.css';
-import { NavLink } from "react-router-dom";
 import { useState } from 'react';
+import { menuContext } from '../App';
+import { useContext } from "react";
 
 import NerdModal from './AboutModals/NerdModal';
 
 function About() {
 
     let [modalIsOpen, setIsOpen] = useState(false);
+    const {setActivePage} = useContext(menuContext);
+    setActivePage("about");
 
     function openModal() {
         setIsOpen(true);
