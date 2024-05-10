@@ -1,0 +1,66 @@
+.Page {
+    text-align: center;
+  }
+  
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));;
+    gap: 20px;
+    min-height: 100vh;
+    margin: 0 30px 0 30px;
+    background-color: #ffffe6;
+  }
+  
+  .gridContainer > div {
+    background-color: #ffffff;
+    margin: 100px 0 100px 0;
+  }
+  
+  .item1 {
+    grid-column: 1 / span 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .item2 {
+    grid-column: 2 / span 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .item3 {
+    grid-column: 12 / span 1;
+    display: flex;
+    align-items: center;
+  }
+
+h1 {
+  font-size: 45px;
+  margin: 0;
+  color: rgb(255, 179, 179);
+  font-family: "Silkscreen";
+}
+
+.dummyWrapper {
+  display: flex;
+  flex-flow:row wrap;
+  height: 30%;
+  margin: 20px 0px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 5px;
+  border-color: pink;
+  border-style: double;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.dummyContainer {
+  width: 350px;
+  height: 450px;
+  margin: 10px;
+  background-color: rgb(180, 180, 224);
+}

@@ -9,7 +9,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Home from './pages/home';
 import About from './pages/about';
-import Skills from './pages/skills';
+import Skills from './pages/Skills';
 import Projects from './pages/projects';
 import PageMenu from './pages/PageMenu';
 

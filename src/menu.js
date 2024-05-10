@@ -9,6 +9,8 @@ const NavUnlisted = styled.div`
   text-align: center;
   text-decoration: none;
   margin: 20px;
+  display: flex;
+  flex-flow:row wrap;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -31,12 +33,12 @@ const StyledLink = styled(NavLink)`
 
   &:focus p {
     color: palevioletred;
-    border-style: dotted;
+    border-style: dashed;
   }
 
   &:hover p {
     color: palevioletred;
-    border-style: dotted;
+    border-style: dashed;
   }
 
   &:focus span {
