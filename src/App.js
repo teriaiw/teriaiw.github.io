@@ -17,6 +17,7 @@ import { createContext } from 'react';
 import { useState } from 'react';
 
 export const menuContext = createContext(null);
+export const avatarContext = createContext(null);
 
 function App() {
   useEffect(() => {
@@ -28,9 +29,11 @@ function App() {
    }, []);
 
   let [activePage, setActivePage] = useState("");
+  let [avatarState, setAvatarState] = useState('');
 
   return (
     <menuContext.Provider value={{activePage, setActivePage}}>
+      <avatarContext.Provider value={{avatarState, setAvatarState}}>
       <BrowserRouter>
         <Routes>
           <Route
@@ -47,6 +50,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
+      </avatarContext.Provider>
     </menuContext.Provider>
   );
 }
