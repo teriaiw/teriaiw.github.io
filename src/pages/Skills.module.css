@@ -7,7 +7,6 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));;
     gap: 20px;
     min-height: 100vh;
-    margin: 0 30px 0 30px;
     background-color: #ffffe6;
   }
   

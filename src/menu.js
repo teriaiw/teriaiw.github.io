@@ -15,12 +15,13 @@ const NavUnlisted = styled.div`
 
 const StyledLink = styled(NavLink)`
   text-decoration: none;
-  margin: 18px;
+  margin: 10px;
   outline: none;
   
   p {
     font-size: 28px;
     padding: 2px 6px;
+    margin: 7px;
     border-radius: 10px;
     font-family: "Pixelify Sans";
     color: grey;      
@@ -32,11 +33,13 @@ const StyledLink = styled(NavLink)`
   }
 
   &:focus p {
+    margin: 0px;
     color: palevioletred;
     border-style: dashed;
   }
 
   &:hover p {
+    margin: 0px;
     color: palevioletred;
     border-style: dashed;
   }
@@ -55,7 +58,7 @@ const StyledLink = styled(NavLink)`
 function Menu() {
   const {setTerminalMessage} = useContext(terminalContext);
 
-  const defaultMessage = "Click on anything and everything"
+  const defaultMessage = "What are ya waiting for..."
 
     return (
         <NavUnlisted>

@@ -12,15 +12,15 @@ function Socials() {
     return (
         <div style={{display: 'flex', margin: '0 10px'}}>
             <button class="circle-link" onClick={() => setTerminalMessage(linkedInMessage)}>
-                <FontAwesomeIcon icon="fa-brands fa-linkedin-in" />
+                <FontAwesomeIcon icon="fa-brands fa-linkedin-in" style={{color: 'grey'}} />
             </button>
 
             <button class="circle-link" onClick={() => setTerminalMessage(gitHubMessage)}>
-                <FontAwesomeIcon icon="fa-brands fa-github" />
+                <FontAwesomeIcon icon="fa-brands fa-github" style={{color: 'grey'}} />
             </button>
 
             <button class="circle-link" onClick={() => setTerminalMessage(emailMessage)}>
-                <FontAwesomeIcon icon="fa-solid fa-envelope" />
+                <FontAwesomeIcon icon="fa-solid fa-envelope" style={{color: 'grey'}} />
             </button>
         </div>
     )

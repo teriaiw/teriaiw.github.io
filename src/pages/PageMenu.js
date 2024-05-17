@@ -21,6 +21,11 @@ const NavButton = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 1s ease-out;
+
+    &:hover {
+        transform: translateY(-0.25rem);
+    }
 `;
 
 const NavUnlisted = styled.div`
