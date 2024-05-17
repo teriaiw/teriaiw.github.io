@@ -3,11 +3,13 @@ import styles from './Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import PetOwner from '../AvatarImages/PetOwner.png'
+import Aura from './Images/Aura.HEIC'
 
 //for Acessibility
 Modal.setAppElement('body');
 
 function PetOwnerModal({isOpen, onClose}) {
+  const para1 ='I have an adorable Golden Retriever named Aura. I took her home when she was just 2 months old and she\'s almost 4 years old now. She\'s my biggest joy in life and I love her to bits.';
 
   return (
     <Modal
@@ -42,9 +44,12 @@ function PetOwnerModal({isOpen, onClose}) {
       <div className={styles.modalContainer}>
         <img src={PetOwner} alt='Pet Owner Avatar'/>
         <h1 className={styles.modalHeader}>PetOwner_Teri</h1>
-        <p className={styles.modalContent}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div className={styles.modalContent}>
+          <p className={styles.modalText}>{para1}</p>
+          <div className={styles.modalContentBlock}>
+            <img className={styles.modalImg} src={Aura} />
+          </div>   
+        </div>
       </div>
     </Modal>
     );

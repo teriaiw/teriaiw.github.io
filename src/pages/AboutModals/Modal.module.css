@@ -22,8 +22,26 @@
 }
 
 .modalContent {
-    margin: 50px 100px 50px 100px;
-    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 100px 50px 100px;
+}
+
+.modalContentBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.modalImg {
+    width: 250px;
+    margin: 15px 25px 0 0;
+    align-self: center;
+}
+
+.modalText {
+    font-size: 24px;
+    padding: 10px 0;
     color: white;
-    font-family: "Pixelify Sans";
+    font-family: "Courier Prime";
 }

@@ -3,11 +3,13 @@ import styles from './Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Baker from '../AvatarImages/Baker.png'
+import Cookies from './Images/Cookies.JPG'
 
 //for Acessibility
 Modal.setAppElement('body');
 
 function BakerModal({isOpen, onClose}) {
+  const para1 = 'I enjoy baking. I bake cookies the most, but I can also make cupcakes, PUPcakes, and cakes!';
 
   return (
     <Modal
@@ -42,9 +44,12 @@ function BakerModal({isOpen, onClose}) {
       <div className={styles.modalContainer}>
         <img src={Baker} alt='Baker Avatar'/>
         <h1 className={styles.modalHeader}>Baker_Teri</h1>
-        <p className={styles.modalContent}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div className={styles.modalContent}>
+          <p className={styles.modalText}>{para1}</p>
+          <div className={styles.modalContentBlock}>
+            <img className={styles.modalImg} src={Cookies} />
+          </div>
+        </div>
       </div>
     </Modal>
     );

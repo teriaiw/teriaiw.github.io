@@ -8,6 +8,8 @@ import Worker from '../AvatarImages/Worker.png'
 Modal.setAppElement('body');
 
 function WorkerModal({isOpen, onClose}) {
+  const para1 = 'As a Frontend Developer, my interests lie heavily in UI/UX. I enjoy noticing the beautiful designs and smooth user experience on any app or webpage I visit.';
+  const para2 = 'Having worked as a Tester for the last 2 years, I\'m confident in following Accessibility guidelines and fishing for bugs.';
 
   return (
     <Modal
@@ -42,9 +44,10 @@ function WorkerModal({isOpen, onClose}) {
       <div className={styles.modalContainer}>
         <img src={Worker} alt='Worker Avatar'/>
         <h1 className={styles.modalHeader}>Developer_Teri</h1>
-        <p className={styles.modalContent}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div className={styles.modalContent}>
+          <p className={styles.modalText}>{para1}</p>
+          <p className={styles.modalText}>{para2}</p>
+        </div>
       </div>
     </Modal>
     );

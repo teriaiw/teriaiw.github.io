@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Rammetto One', 'Silkscreen', 'Pixelify Sans']
+        families: ['Rammetto One', 'Silkscreen', 'Pixelify Sans', 'Courier Prime']
       }
     });
    }, []);

@@ -3,11 +3,14 @@ import styles from './Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Crystal from '../AvatarImages/Crystal.png'
+import Crystals from './Images/Crystals.JPEG'
 
 //for Acessibility
 Modal.setAppElement('body');
 
 function CrystalModal({isOpen, onClose}) {
+  const para1 = 'One of my hobbies is collecting Crystals. I was really amazed at how nature could create such magical minerals. One of my favourite crystals are Labradorites! It\'s really cool how they can reflect so many colors.';
+  const para2 = 'I have an Instagram page documenting my collection @krztera. I used to sell some but it\'s closed for now.'
 
   return (
     <Modal
@@ -42,9 +45,13 @@ function CrystalModal({isOpen, onClose}) {
       <div className={styles.modalContainer}>
         <img src={Crystal} alt='Crystal Avatar'/>
         <h1 className={styles.modalHeader}>CrystalCollector_Teri</h1>
-        <p className={styles.modalContent}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div className={styles.modalContent}>
+          <p className={styles.modalText}>{para1}</p>
+          <p className={styles.modalText}>{para2}</p>
+          <div className={styles.modalContentBlock}>
+            <img className={styles.modalImg} src={Crystals} />
+          </div>
+        </div>
       </div>
     </Modal>
     );

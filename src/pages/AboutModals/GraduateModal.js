@@ -1,14 +1,18 @@
 import Modal from 'react-modal';
 import styles from './Modal.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Graduate from '../AvatarImages/Graduate.png'
+import Graduate from '../AvatarImages/Graduate.png';
+import NUS from './Images/NUS.JPG';
+import NYP from './Images/NYP.JPG';
 
 //for Acessibility
 Modal.setAppElement('body');
 
 function GraduateModal({isOpen, onClose}) {
-
+  const para1 = 'In 2022, I graduated from National University of Singapore with a Bachelor\'s degree in Computer Science, and Minor in Interactive Media Developement.';
+  const para2 = 'In 2018, I graduated from Nanyang Polytechnic with a Diploma in Hospitality & Tourism and managed to get 3rd in the cohort.';
+  
   return (
     <Modal
       style={{
@@ -42,9 +46,15 @@ function GraduateModal({isOpen, onClose}) {
       <div className={styles.modalContainer}>
         <img src={Graduate} alt='Graduate Avatar'/>
         <h1 className={styles.modalHeader}>Graduate_Teri</h1>
-        <p className={styles.modalContent}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div className={styles.modalContent}>
+            <p className={styles.modalText}>{para1}</p>
+            <p className={styles.modalText}>{para2}</p>
+            <div className={styles.modalContentBlock}>
+              <img className={styles.modalImg} src={NUS} />
+              <img className={styles.modalImg} src={NYP} />
+            </div>
+            
+        </div>
       </div>
     </Modal>
     );
