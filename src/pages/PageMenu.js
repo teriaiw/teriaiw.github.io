@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components'
 import { menuContext } from "../App";
 import { useContext } from "react";
+
+import Open from './Images/Open.png'
+import Close from './Images/Close.png'
 
 const NavButton = styled.div`
     text-decoration: none;
     margin: 20px;
     display: flex;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    background: red;
-    height: 80px;
-    width: 80px;
+    bottom: 15px;
+    right: 15px;
+    height: 120px;
+    width: 120px;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 const NavUnlisted = styled.div`
@@ -24,10 +30,13 @@ const NavUnlisted = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 80px;
-    right: 80px;
-    background: white;
-    border-radius: 3px;
+    bottom: 110px;
+    right: 110px;
+    background: rgba(255,255,255,0.8);
+    border: 3px;
+    border-style: dashed;
+    border-color: rgb(103,74,41);
+    border-radius: 10px;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -75,11 +84,23 @@ function PageMenu() {
 
     /**To trigger Nav Menu */
     const [showMenu, setShowMenu] = React.useState(false)
-    const onClick = () => setShowMenu(!showMenu)
+    let [menuState, setMenuState] = useState(Close);
+
+    const onClick = () => {
+        setShowMenu(!showMenu);
+        if (menuState === Close) {
+            setMenuState(Open);
+        } else {
+            setMenuState(Close);
+        }
+    }
 
     return (
         <div>
-        <NavButton onClick={onClick}/>
+        <NavButton onClick={onClick}>
+            <img src={menuState} />
+            <p>Menu</p>
+        </NavButton>
         { showMenu ? 
             <NavUnlisted onClick={onClick}>
                 <StyledLink to="/">
