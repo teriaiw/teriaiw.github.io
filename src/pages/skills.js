@@ -41,6 +41,7 @@ const StyledButton = styled.button`
   p {
     font-size: 28px;
     padding: 2px 6px;
+    margin: 7px;
     border-radius: 10px;
     font-family: "Pixelify Sans";
     color: grey;      
@@ -52,11 +53,13 @@ const StyledButton = styled.button`
   }
 
   &:hover p {
+    margin: 0px;
     color: palevioletred;
     border-style: dashed;
   }
 
   &:focus p {
+    margin: 0px;
     color: palevioletred;
     border-style: ridge;
     border-color: palevioletred;
@@ -139,41 +142,41 @@ function Skills() {
     function setTextVariation(strength) {
         if (strength === 'low') {
             if (avatarState === Graduate) {
-                setText('I passed and obtained the scroll. But I shall work on it.');
+                setText('Knowledge acquired. Needs some work to get it useful.');
             } else if (avatarState === Worker) {
                 setText('I need my little helper to get through this.');
             } else if (avatarState === PetOwner) {
-                setText('As good as my Aura can sit.');
+                setText('Good sit.');
             } else if (avatarState === Baker) {
                 setText('As good as I can make simple cookies. They are quite delicious.');
             } else if (avatarState === Crystal) {
-                setText('As precious as this rock. Not fantastic but still valuable.');
+                setText('A rock. Not fantastic but still valuable.');
             } else {
                 setText('');
             }
         } else if (strength === 'med') {
             if (avatarState === Graduate) {
-                setText('Got the certificate. But not a master at it yet.');
+                setText('Certified, but needs more work.');
             } else if (avatarState === Worker) {
-                setText('As good as me playing games. I can figure it out fast along the way.');
+                setText('I can figure it out fast along the way.');
             } else if (avatarState === PetOwner) {
-                setText('As good as an intermediate dog trick.');
+                setText('The tricks get better.');
             } else if (avatarState === Baker) {
-                setText('I can make cupcakes with frosting. Comes with experience.');
+                setText('Cupcakes with frosting, comes with experience.');
             } else if (avatarState === Crystal) {
-                setText('As precious as this shiny crystal. Pretty neat.');
+                setText('Shiny crystal. Pretty neat.');
             } else {
                 setText('');
             }
         } else if (strength === 'high') {
             if (avatarState === Graduate) {
-                setText('Pretty smart at it to get a trophy.');
+                setText('Pretty good at it. Can put it to good use.');
             } else if (avatarState === Worker) {
-                setText('I can get to work asap on this.');
+                setText('I can get to work on this ASAP.');
             } else if (avatarState === PetOwner) {
-                setText('Fetching a frisbee is for the most agile dogs.');
+                setText('As good as a Retreiver retrieves.');
             } else if (avatarState === Baker) {
-                setText('3-tier cake is my specialty.');
+                setText('As advanced as making a 3-tier cake.');
             } else if (avatarState === Crystal) {
                 setText('As precious as this gold nugget. Retains it\'s value.');
             } else {
