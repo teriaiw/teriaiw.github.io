@@ -86,9 +86,12 @@ function Skills() {
     const defaultAvatar = avatarState ? avatarState : Default;
     let [avatar, setAvatar] = useState(defaultAvatar);
 
-    /**Set Text */
+    /**Set Character Text */
     const defaultText = 'Click on any of the skills below to check my stats'
     let [text, setText] = useState(defaultText);
+
+    /**Set Information Text on Skill */
+    let [skillText, setSkillText] = useState('');
 
     /**Set Bar Strength */
     let [barState, setBarState] = useState('');
@@ -146,7 +149,7 @@ function Skills() {
             } else if (avatarState === Crystal) {
                 setText('As precious as this rock. Not fantastic but still valuable.');
             } else {
-                setText('low');
+                setText('');
             }
         } else if (strength === 'med') {
             if (avatarState === Graduate) {
@@ -160,7 +163,7 @@ function Skills() {
             } else if (avatarState === Crystal) {
                 setText('As precious as this shiny crystal. Pretty neat.');
             } else {
-                setText('med');
+                setText('');
             }
         } else if (strength === 'high') {
             if (avatarState === Graduate) {
@@ -174,12 +177,12 @@ function Skills() {
             } else if (avatarState === Crystal) {
                 setText('As precious as this gold nugget. Retains it\'s value.');
             } else {
-                setText('high');
+                setText('');
             }
         }
     }
 
-    function setInfo(strength) {
+    function setVisualInfo(strength) {
         setAvatarVariation(strength);
         setTextVariation(strength);
         setBarState(strength);
@@ -188,7 +191,39 @@ function Skills() {
     function setDefault() {
         setAvatar(defaultAvatar);
         setText(defaultText);
+        setSkillText('');
         setBarState('');
+    }
+
+    function setInfo(skill) {
+        if (skill === 'HTML') {
+            setSkillText('The basics, have just updated my knowledge in HTML5.');
+            setVisualInfo('high');
+        } else if (skill === 'CSS') {
+            setSkillText('This site uses Styled Components and CSS sheets.');
+            setVisualInfo('high');
+        } else if (skill === 'JavaScript') {
+            setSkillText('I used to teach this to kids. It is used in this site as well.');
+            setVisualInfo('high');
+        } else if (skill === 'Java') {
+            setSkillText('Used in majority of school projects, but have not used it in a while.');
+            setVisualInfo('med');
+        } else if (skill === 'Python') {
+            setSkillText('I used to teach this to kids, but have not used it on my own projects.');
+            setVisualInfo('med');
+        } else if (skill === 'React') {
+            setSkillText('It\'s what this site was built on.');
+            setVisualInfo('high');
+        } else if (skill === 'Angular') {
+            setSkillText('Learnt it for work but did not apply in any projects yet.');
+            setVisualInfo('low');
+        } else if (skill === 'SQL') {
+            setSkillText('Used frequently in my last project.');
+            setVisualInfo('med');
+        } else if (skill === 'PostgreSQL') {
+            setSkillText('Used in an old project, have not revisited it.');
+            setVisualInfo('low');
+        }
     }
 
     return (
@@ -203,9 +238,11 @@ function Skills() {
                         </div>
                         <div className={styles.infoContainer}>
                             <div className={styles.textContainer}>
-                                <p>{text}</p>
+                                <p className={styles.text}>{text}</p>
+                                <p className={styles.text}>{skillText}</p>
                             </div>
                             <div className={styles.barContainer}>
+                                <p>Proficiency:</p>
                                 <div className={styles.barOuter}>
                                     { barState === '' ? null : <div className={styles.barInner1} />}
                                     { barState === 'med' ? <div className={styles.barInner2} /> : barState === 'high' ? <div className={styles.barInner2} /> : null}
@@ -217,31 +254,31 @@ function Skills() {
 
                     <h1>Check My Skills</h1>
                     <div className={styles.wrapper}>
-                        <StyledButton onFocus={() => setInfo('high')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('HTML')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>HTML</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('high')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('CSS')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>CSS</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('high')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('JavaScript')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>JavaScript</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('med')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('Java')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>Java</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('high')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('Python')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>Python</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('high')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('React')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>React</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('low')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('Angular')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>Angular</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('med')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('SQL')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>SQL</p>
                         </StyledButton>
-                        <StyledButton onFocus={() => setInfo('med')} onBlur={() => setDefault()}>
+                        <StyledButton onFocus={() => setInfo('PostgreSQL')} onBlur={() => setDefault()}>
                             <span>{'\u25B6'}</span><p>PostgreSQL</p>
                         </StyledButton>
                     </div>
