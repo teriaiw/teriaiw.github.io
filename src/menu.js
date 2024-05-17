@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components'
 
-import { terminalContext } from "./pages/home";
+import { terminalContext } from "./pages/Home";
 import { useContext } from "react";
 
 const NavUnlisted = styled.div`

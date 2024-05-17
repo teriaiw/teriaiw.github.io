@@ -4,32 +4,32 @@ import { menuContext } from '../App';
 import { avatarContext } from '../App';
 import { useContext, useState } from "react";
 
-import Default from './skillAvatars/Default.png'
-import Graduate from './skillAvatars/Graduate.png'
-import Worker from './skillAvatars/Worker.png'
-import PetOwner from './skillAvatars/PetOwner.png'
-import Baker from './skillAvatars/Baker.png'
-import Crystal from './skillAvatars/Crystal.png'
+import Default from './AvatarImages/Default.png'
+import Graduate from './AvatarImages/Graduate.png'
+import Worker from './AvatarImages/Worker.png'
+import PetOwner from './AvatarImages/PetOwner.png'
+import Baker from './AvatarImages/Baker.png'
+import Crystal from './AvatarImages/Crystal.png'
 
-import Graduate1 from './skillAvatars/Graduate1.png'
-import Graduate2 from './skillAvatars/Graduate2.png'
-import Graduate3 from './skillAvatars/Graduate3.png'
+import Graduate1 from './AvatarImages/Graduate1.png'
+import Graduate2 from './AvatarImages/Graduate2.png'
+import Graduate3 from './AvatarImages/Graduate3.png'
 
-import Worker1 from './skillAvatars/Worker1.png'
-import Worker2 from './skillAvatars/Worker2.png'
-import Worker3 from './skillAvatars/Worker3.png'
+import Worker1 from './AvatarImages/Worker1.png'
+import Worker2 from './AvatarImages/Worker2.png'
+import Worker3 from './AvatarImages/Worker3.png'
 
-import Pet1 from './skillAvatars/Pet1.png'
-import Pet2 from './skillAvatars/Pet2.png'
-import Pet3 from './skillAvatars/Pet3.png'
+import Pet1 from './AvatarImages/Pet1.png'
+import Pet2 from './AvatarImages/Pet2.png'
+import Pet3 from './AvatarImages/Pet3.png'
 
-import Baker1 from './skillAvatars/Baker1.png'
-import Baker2 from './skillAvatars/Baker2.png'
-import Baker3 from './skillAvatars/Baker3.png'
+import Baker1 from './AvatarImages/Baker1.png'
+import Baker2 from './AvatarImages/Baker2.png'
+import Baker3 from './AvatarImages/Baker3.png'
 
-import Crystal1 from './skillAvatars/Crystal1.png'
-import Crystal2 from './skillAvatars/Crystal2.png'
-import Crystal3 from './skillAvatars/Crystal3.png'
+import Crystal1 from './AvatarImages/Crystal1.png'
+import Crystal2 from './AvatarImages/Crystal2.png'
+import Crystal3 from './AvatarImages/Crystal3.png'
 
 const StyledButton = styled.button`
   text-decoration: none;

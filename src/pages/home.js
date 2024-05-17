@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import Terminal from '../components/terminal';
-import Menu from '../menu';
+import Menu from '../Menu';
 import Socials from '../components/socials';
 import { createContext } from 'react';
 import { useState } from 'react';
 import { menuContext } from '../App';
 import { useContext } from "react";
 
-import styles from './home.module.css';
+import styles from './Home.module.css';
 
 export const terminalContext = createContext(null);
 

@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import styles from './Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import Graduate from '../skillAvatars/Graduate.png'
+import Graduate from '../AvatarImages/Graduate.png'
 
 //for Acessibility
 Modal.setAppElement('body');

@@ -1,13 +1,13 @@
-import styles from './about.module.css';
+import styles from './About.module.css';
 import { useState } from 'react';
 import { menuContext } from '../App';
 import { avatarContext } from '../App';
 import { useContext } from "react";
-import Graduate from './skillAvatars/Graduate.png'
-import Worker from './skillAvatars/Worker.png'
-import PetOwner from './skillAvatars/PetOwner.png'
-import Baker from './skillAvatars/Baker.png'
-import Crystal from './skillAvatars/Crystal.png'
+import Graduate from './AvatarImages/Graduate.png'
+import Worker from './AvatarImages/Worker.png'
+import PetOwner from './AvatarImages/PetOwner.png'
+import Baker from './AvatarImages/Baker.png'
+import Crystal from './AvatarImages/Crystal.png'
 
 import GraduateModal from './AboutModals/GraduateModal';
 import WorkerModal from './AboutModals/WorkerModal';

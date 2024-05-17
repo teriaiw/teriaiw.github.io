@@ -7,10 +7,10 @@ import WebFont from 'webfontloader';
 import './App.css';
 
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import Home from './pages/home';
-import About from './pages/about';
+import Home from './pages/Home';
+import About from './pages/About';
 import Skills from './pages/Skills';
-import Projects from './pages/projects';
+import Projects from './pages/Projects';
 import PageMenu from './pages/PageMenu';
 
 import { createContext } from 'react';

@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import styles from './Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import PetOwner from '../skillAvatars/PetOwner.png'
+import PetOwner from '../AvatarImages/PetOwner.png'
 
 //for Acessibility
 Modal.setAppElement('body');

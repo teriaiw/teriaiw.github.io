@@ -1,4 +1,4 @@
-import { terminalContext } from "../pages/home";
+import { terminalContext } from "../pages/Home";
 import { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
