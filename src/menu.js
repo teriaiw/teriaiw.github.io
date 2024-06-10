@@ -19,7 +19,7 @@ const StyledLink = styled(NavLink)`
   outline: none;
   
   p {
-    font-size: 28px;
+    font-size: 26px;
     padding: 2px 6px;
     margin: 7px;
     border-radius: 10px;
@@ -52,6 +52,10 @@ const StyledLink = styled(NavLink)`
   &:hover span {
     color: palevioletred;
     display: inline;
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin: 5px;
   }
 `;
 

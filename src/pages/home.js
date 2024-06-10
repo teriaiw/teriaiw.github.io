@@ -19,6 +19,11 @@ function Home() {
     return (
       <terminalContext.Provider value={{terminalMessage, setTerminalMessage}}>
         <div className="App">
+          {/**Screen Size Unsupported Message */}
+          <div className={styles.mobile}>
+            <p>Sorry! This screen size is not yet supported</p>
+          </div>
+          
           <div className={styles.gridContainer}>
             <div className={styles.item1} />
             

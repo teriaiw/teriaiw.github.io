@@ -50,8 +50,8 @@ function GraduateModal({isOpen, onClose}) {
             <p className={styles.modalText}>{para1}</p>
             <p className={styles.modalText}>{para2}</p>
             <div className={styles.modalContentBlock}>
-              <img className={styles.modalImg} src={NUS} />
-              <img className={styles.modalImg} src={NYP} />
+              <img className={styles.modalImg} src={NUS} alt='NUS Graduation' />
+              <img className={styles.modalImg} src={NYP} alt='NYP Graduation' />
             </div>
             
         </div>

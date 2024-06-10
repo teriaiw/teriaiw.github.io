@@ -49,7 +49,7 @@ function CrystalModal({isOpen, onClose}) {
           <p className={styles.modalText}>{para1}</p>
           <p className={styles.modalText}>{para2}</p>
           <div className={styles.modalContentBlock}>
-            <img className={styles.modalImg} src={Crystals} />
+            <img className={styles.modalImg} src={Crystals} alt='Crystals' />
           </div>
         </div>
       </div>

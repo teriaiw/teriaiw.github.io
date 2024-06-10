@@ -15,7 +15,7 @@ h2 {
   font-size: 90px;
   margin: 10px 0 0 0;
   text-align: right;
-  color: rgb(243, 108, 108);
+  color: rgb(233, 114, 114);
   font-family: "Rammetto One";
 }
 
@@ -24,4 +24,14 @@ p {
   font-size: 20px;
   color: rgb(255, 179, 179);
   font-family: "Silkscreen";
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+  
+  h2 {
+    font-size: 70px;
+  }
 }

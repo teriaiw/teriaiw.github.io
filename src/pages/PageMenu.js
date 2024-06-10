@@ -88,26 +88,29 @@ function PageMenu() {
     const {activePage} = useContext(menuContext);
 
     /**To trigger Nav Menu */
-    const [showMenu, setShowMenu] = React.useState(false)
+    const [showMenu, setShowMenu] = React.useState(false);
+
+    /**For Animation */
     let [menuState, setMenuState] = useState(Close);
 
-    const onClick = () => {
-        setShowMenu(!showMenu);
-        if (menuState === Close) {
-            setMenuState(Open);
-        } else {
-            setMenuState(Close);
-        }
+    const openMenu = () => {
+        setShowMenu(true);
+        setMenuState(Open);
+    }
+
+    const closeMenu = () => {
+        setShowMenu(false);
+        setMenuState(Close);
     }
 
     return (
         <div>
-        <NavButton onClick={onClick}>
-            <img src={menuState} />
+        <NavButton onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+            <img src={menuState} alt='Page Menu' />
             <p>Menu</p>
         </NavButton>
         { showMenu ? 
-            <NavUnlisted onClick={onClick}>
+            <NavUnlisted onClick={closeMenu} onMouseEnter={openMenu} onMouseLeave={closeMenu}>
                 <StyledLink to="/">
                 <span>{'\u25B6'}</span>
                 <p>Home</p>
