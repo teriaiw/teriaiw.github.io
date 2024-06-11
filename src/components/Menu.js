@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components'
 
-import { terminalContext } from "./pages/Home";
+import { terminalContext } from "../pages/Home";
 import { useContext } from "react";
 
 const NavUnlisted = styled.div`
@@ -67,9 +67,9 @@ function Menu() {
     return (
         <NavUnlisted>
           <StyledLink to="/my-life" 
-            onMouseEnter={() => setTerminalMessage("come peak into my life")}
+            onMouseEnter={() => setTerminalMessage("cd teri_life")}
             onMouseLeave={() => setTerminalMessage(defaultMessage)}
-            onFocus={() => setTerminalMessage("come peak into my life")}
+            onFocus={() => setTerminalMessage("cd teri_life")}
             onBlur={() => setTerminalMessage(defaultMessage)}
           >
             <span>{'\u25B6'}</span>
@@ -77,9 +77,9 @@ function Menu() {
           </StyledLink>
 
           <StyledLink to="/my-skills"
-            onMouseEnter={() => setTerminalMessage("all my skillz")}
+            onMouseEnter={() => setTerminalMessage("cd teri_skillz")}
             onMouseLeave={() => setTerminalMessage(defaultMessage)}
-            onFocus={() => setTerminalMessage("all my skillz")}
+            onFocus={() => setTerminalMessage("cd teri_skillz")}
             onBlur={() => setTerminalMessage(defaultMessage)}
           >
             <span>{'\u25B6'}</span>
@@ -87,9 +87,9 @@ function Menu() {
           </StyledLink>
 
           <StyledLink to="/my-projects"
-            onMouseEnter={() => setTerminalMessage("see what I've done")}
+            onMouseEnter={() => setTerminalMessage("cd teri_projects")}
             onMouseLeave={() => setTerminalMessage(defaultMessage)}
-            onFocus={() => setTerminalMessage("see what I've done")}
+            onFocus={() => setTerminalMessage("cd teri_projects")}
             onBlur={() => setTerminalMessage(defaultMessage)}
           >
             <span>{'\u25B6'}</span>

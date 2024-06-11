@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Terminal from '../components/terminal';
-import Menu from '../Menu';
+import Menu from '../components/Menu';
 import Socials from '../components/socials';
 import { createContext } from 'react';
 import { useState } from 'react';

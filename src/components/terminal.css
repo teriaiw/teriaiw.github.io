@@ -33,10 +33,11 @@
 }
 
 .terminal-message {
-    padding: 70px 30px 0 30px;
+    padding: 70px 5px 0 30px;
     font-size: 30px;
     font-family: "Pixelify Sans";
     color: #ffffff;
+    display: inline-block;
 }
 
 .circle-link {
@@ -58,6 +59,14 @@
     transform: translateY(-0.25rem);
     box-shadow: 0px 3px 15px rgba(88, 88, 88, 0.2);
 }
+
+/* Cursor */
+.typed-cursor {
+    font-size: 34px;
+    font-family: "Pixelify Sans";
+    color: #ffffff;
+}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
