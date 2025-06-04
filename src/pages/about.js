@@ -27,7 +27,6 @@ function About() {
     }
 
     const scrollRef = useRef(null);
-    const [isScrollable, setIsScrollable] = useState(false);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(false);
 
