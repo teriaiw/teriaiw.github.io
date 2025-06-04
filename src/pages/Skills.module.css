@@ -137,3 +137,46 @@ h1 {
   font-family: "Pixelify Sans";
   color: rgb(49, 49, 49);
 }
+
+.skillButton {
+  text-decoration: none;
+  margin: 5px;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.skillButton p {
+  font-size: 28px;
+  padding: 2px 6px;
+  margin: 7px;
+  border-radius: 10px;
+  font-family: "Pixelify Sans";
+  color: grey;
+  display: inline;
+}
+
+.skillButton span {
+  display: none;
+}
+
+.skillButton:hover p {
+  margin: 0px;
+  color: palevioletred;
+  border-style: dashed;
+}
+
+.skillButton:focus p {
+  margin: 0px;
+  color: palevioletred;
+  border-style: ridge;
+  border-color: palevioletred;
+  background: white;
+}
+
+.skillButton:focus span,
+.skillButton:hover span {
+  color: palevioletred;
+  display: inline;
+}

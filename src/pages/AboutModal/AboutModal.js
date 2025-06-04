@@ -1,15 +1,13 @@
 import Modal from 'react-modal';
 import styles from './Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import Baker from '../AvatarImages/Baker.png'
-import Cookies from './Images/Cookies.JPG'
+import { MODAL_CONTENT } from './modalContent';
 
 //for Acessibility
 Modal.setAppElement('body');
 
-function BakerModal({isOpen, onClose}) {
-  const para1 = 'I enjoy baking. I bake cookies the most, but I can also make cupcakes, PUPcakes, and cakes!';
+function AboutModal({isOpen, onClose, avatar}) {
+  const content = MODAL_CONTENT[avatar];
 
   return (
     <Modal
@@ -34,7 +32,7 @@ function BakerModal({isOpen, onClose}) {
         }
       }}
       isOpen={isOpen}
-      contentLabel="Example Modal"
+      contentLabel="Modal"
       closeOnOverlayClick={true}
       onRequestClose={onClose} 
     >
@@ -42,12 +40,12 @@ function BakerModal({isOpen, onClose}) {
         <FontAwesomeIcon icon="fa-solid fa-xmark" size="2xl" style={{color: "#ffffff",}} />
       </button>
       <div className={styles.modalContainer}>
-        <img src={Baker} alt='Baker Avatar'/>
-        <h1 className={styles.modalHeader}>Baker_Teri</h1>
+        <img src={content.avatar} alt='Avatar'/>
+        <h1 className={styles.modalHeader}>{content.title}</h1>
         <div className={styles.modalContent}>
-          <p className={styles.modalText}>{para1}</p>
+          <p className={styles.modalText}>{content.description}</p>
           <div className={styles.modalContentBlock}>
-            <img className={styles.modalImg} src={Cookies} />
+            <img className={styles.modalImg} src={content.image} alt='Avatar' />
           </div>
         </div>
       </div>
@@ -55,5 +53,5 @@ function BakerModal({isOpen, onClose}) {
     );
 }
 
-export default BakerModal;
+export default AboutModal;
 

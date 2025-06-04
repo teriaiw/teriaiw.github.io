@@ -57,24 +57,13 @@
   align-items: center;
   margin-bottom: 10px;
 }
-
-.mobile {
-  display: none;
-}
-
   
 @media only screen and (max-width: 768px) {
-  .mobile {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-  }
-  
   .gridContainer {
-    display: none;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    padding: 0px 20px 0px 20px;
-    gap: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
   }
 
   .gridContainer > div {
@@ -82,16 +71,24 @@
   }
 
   /* For mobile phones: */
-  [class*="item"] {
-    grid-column: 1 / span 1;
+  .item1, .item2, .item3, .item4, .item5 {
+    grid-column: 1 / -1;
   }
 
-  .item3 {
-    display: none;
-  }
-
+  .item3,
   .item5 {
-    display: none;
+    display: none; /* Hide spacers if not needed */
   }
 
+  .item2,
+  .item4 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cardContainer {
+    flex-direction: column;
+    text-align: center;
+  }
 }
