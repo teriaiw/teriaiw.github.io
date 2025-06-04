@@ -8,7 +8,6 @@
 
 .gridContainer > div {
   background-color: #ffffe6;
-  margin: 120px 0 120px 0;
 }
 
 .item1 {
@@ -63,28 +62,22 @@
     display: grid;
     grid-template-columns: 1fr;
     padding: 20px;
-    gap: 20px;
+    gap: 0px;
   }
 
-  .gridContainer > div {
-    margin: 0px;
-  }
-
-  /* For mobile phones: */
   .item1, .item2, .item3, .item4, .item5 {
     grid-column: 1 / -1;
   }
 
-  .item3,
-  .item5 {
-    display: none; /* Hide spacers if not needed */
+  .item3, .item5 {
+    display: none;
   }
 
-  .item2,
-  .item4 {
+  .item2, .item4 {
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin: 0;
   }
 
   .cardContainer {

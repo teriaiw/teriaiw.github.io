@@ -1,7 +1,7 @@
 import styles from './Skills.module.css'
 import { menuContext } from '../App';
 import { avatarContext } from '../App';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { avatars } from '../config/avatarConfig';
 import { textVariations } from './skillsContent';
 import { skillContent } from './skillsContent';
@@ -9,7 +9,10 @@ import { skillContent } from './skillsContent';
 function Skills() {
 
     const {setActivePage} = useContext(menuContext);
-    setActivePage("skills");
+
+    useEffect(() => {
+        setActivePage("skills");
+    }, [setActivePage]);
 
     /**To know which Character was selected from About page */
     const {avatarState} = useContext(avatarContext);
@@ -17,7 +20,13 @@ function Skills() {
     /**Set Character */
     const avatarObj = avatars.find((a) => a.id === avatarState) || avatars.find(a => a.id === 'Default');
     const defaultAvatar = avatarObj?.image;
-    let [avatar, setAvatar] = useState(defaultAvatar);
+    let [avatar, setAvatar] = useState(null);
+
+    useEffect(() => {
+        if (defaultAvatar) {
+            setAvatar(defaultAvatar);
+        }
+      }, [defaultAvatar]);
 
     function setAvatarVariation(strength) {
         const variation = avatarObj?.variations?.[strength];
@@ -64,12 +73,6 @@ function Skills() {
 
     const skills = Object.keys(skillContent);
 
-    const SkillButton = ({ skill, onFocus, onBlur }) => (
-        <button className={styles.skillButton} onFocus={() => onFocus(skill)} onBlur={onBlur}>
-            <span>{'\u25B6'}</span><p>{skill}</p>
-        </button>
-    );
-
     return (
         <div className={styles.Page}>
             <div className={styles.gridContainer}>
@@ -78,7 +81,9 @@ function Skills() {
                 <div className={styles.item2}>
                     <div className={styles.container}>
                         <div className={styles.avatarContainer}>
-                            <img src={avatar} alt='avatar'/>
+                        {avatar && (
+                            <img src={avatar} alt="avatar" className={styles.avatarImage} />
+                        )}
                         </div>
                         <div className={styles.infoContainer}>
                             <div className={styles.textContainer}>
@@ -99,7 +104,9 @@ function Skills() {
                     <h1>Check My Skills</h1>
                     <div className={styles.wrapper}>
                         {skills.map(skill => (
-                            <SkillButton key={skill} skill={skill} onFocus={setInfo} onBlur={setDefault} />
+                            <button className={styles.skillButton} key={skill} onFocus={() => setInfo(skill)} onBlur={setDefault}>
+                                <span>{'\u25B6'}</span><p>{skill}</p>
+                            </button>
                         ))}
                     </div>
                 </div>

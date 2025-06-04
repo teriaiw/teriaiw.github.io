@@ -5,6 +5,28 @@
     align-items: center;
 }
 
+.modalOverlay {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.55);
+    z-index: 1000;
+}
+
+.modalContent {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    border: 1px solid #ccc;
+    background: pink;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 25px;
+    outline: none;
+    padding: 50px;
+    z-index: 1001;
+}
+
 .modalCloseButton {
     position:absolute;
     top: 20px;
@@ -21,7 +43,7 @@
     color: white;
 }
 
-.modalContent {
+.modalBody {
     display: flex;
     flex-direction: column;
     margin: 40px 100px 50px 100px;
@@ -44,4 +66,52 @@
     padding: 10px 0;
     color: white;
     font-family: "Courier Prime";
+}
+
+.modalContentScrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.modalContentScrollbar::-webkit-scrollbar-track {
+    background: #fff9f9;
+    border-radius: 10px;
+}
+
+.modalContentScrollbar::-webkit-scrollbar-thumb {
+    background-color: #ffb3b3;
+    border-radius: 10px;
+    border: 2px solid #ffd6e8;
+}
+
+.modalContentScrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #ff9999;
+}
+
+@media (max-width: 768px) {
+    .modalContent {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+        background: pink;
+        overflow-y: auto;
+        border-radius: 0;
+        padding: 20px;
+        z-index: 1001;
+    }
+
+    .modalBody {
+        margin: 40px 20px 50px 20px;
+    }
+
+    .modalHeader {
+        font-size: 30px;
+    }
+
+    .modalText {
+        font-size: 20px;
+    }
 }

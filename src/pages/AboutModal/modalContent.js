@@ -16,7 +16,7 @@ export const MODAL_CONTENT = {
     avatar: avatars.find((a) => a.id === "Worker").image,
     title: 'Worker_Teri',
     description: 'As a Frontend Developer, my interests lie heavily in UI/UX. I enjoy noticing the beautiful designs and smooth user experience on any app or webpage I visit. Having worked as a Tester for the last 2 years, I\'m confident in following Accessibility guidelines and fishing for bugs.',
-    image: '',
+    image: null,
   },
   PetOwner: {
     avatar: avatars.find((a) => a.id === "PetOwner").image,

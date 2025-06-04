@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styled from 'styled-components'
 import { menuContext } from "../App";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import Open from './Images/Open.png'
 import Close from './Images/Close.png'
@@ -11,7 +11,7 @@ const NavButton = styled.div`
     text-decoration: none;
     margin: 20px;
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     right: 15px;
     height: 120px;
@@ -22,9 +22,15 @@ const NavButton = styled.div`
     justify-content: center;
     align-items: center;
     transition: 1s ease-out;
+    z-index: 999;
 
     &:hover {
         transform: translateY(-0.25rem);
+    }
+
+    @media (max-width: 768px) {
+        height: 80px;
+        width: 80px;
     }
 `;
 
@@ -34,14 +40,20 @@ const NavUnlisted = styled.div`
     margin: 20px;
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     bottom: 110px;
-    right: 110px;
+    right: 90px;
     background: rgba(255,255,255,0.8);
     border: 3px;
     border-style: dashed;
     border-color: rgb(103,74,41);
     border-radius: 10px;
+    z-index: 1000;
+
+    @media (max-width: 768px) {
+        bottom: 90px;
+        right: 60px;
+    }
 `;
 
 const StyledLink = styled(NavLink)`
@@ -84,14 +96,39 @@ const StyledLink = styled(NavLink)`
 `;
 
 function PageMenu() {
+    const location = useLocation();
+    
     /**To hide Active/Current Page from Menu */
     const {activePage} = useContext(menuContext);
 
     /**To trigger Nav Menu */
     const [showMenu, setShowMenu] = React.useState(false);
 
+    /**For showing button based on scroll + screen size */
+    const [showButton, setShowButton] = useState(false);
+
     /**For Animation */
     let [menuState, setMenuState] = useState(Close);
+
+    useEffect(() => {
+        function handleScroll() {
+          const isMobile = window.innerWidth <= 768;
+          const scrolledDown = window.scrollY > 0;
+          const isScrollable = document.documentElement.scrollHeight > window.innerHeight;
+          // Show button only on mobile and if scrolled down
+          setShowButton(!isMobile || (isMobile && (scrolledDown || !isScrollable)));
+        }
+    
+        handleScroll();
+    
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleScroll);
+        
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+          window.removeEventListener("resize", handleScroll);
+        };
+      }, [location.pathname]);
 
     const openMenu = () => {
         setShowMenu(true);
@@ -102,6 +139,8 @@ function PageMenu() {
         setShowMenu(false);
         setMenuState(Close);
     }
+
+    if (!showButton) return null;
 
     return (
         <div>

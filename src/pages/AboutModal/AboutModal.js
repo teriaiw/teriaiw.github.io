@@ -11,26 +11,8 @@ function AboutModal({isOpen, onClose, avatar}) {
 
   return (
     <Modal
-      style={{
-        overlay: {
-          position: 'fixed',
-          backgroundColor: 'rgba(255, 255, 255, 0.55)'
-        },
-        content: {
-          position: 'absolute',
-          top: '15%',
-          left: '15%',
-          right: '15%',
-          bottom: '15%',
-          border: '1px solid #ccc',
-          background: 'pink',
-          overflow: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          borderRadius: '25px',
-          outline: 'none',
-          padding: '50px'
-        }
-      }}
+      overlayClassName={styles.modalOverlay}
+      className={`${styles.modalContent} ${styles.modalContentScrollbar}`}
       isOpen={isOpen}
       contentLabel="Modal"
       closeOnOverlayClick={true}
@@ -42,15 +24,17 @@ function AboutModal({isOpen, onClose, avatar}) {
       <div className={styles.modalContainer}>
         <img src={content.avatar} alt='Avatar'/>
         <h1 className={styles.modalHeader}>{content.title}</h1>
-        <div className={styles.modalContent}>
+        <div className={styles.modalBody}>
           <p className={styles.modalText}>{content.description}</p>
           <div className={styles.modalContentBlock}>
-            <img className={styles.modalImg} src={content.image} alt='Avatar' />
+            {content.image && (
+              <img className={styles.modalImg} src={content.image} alt='Avatar' />
+            )}
           </div>
         </div>
       </div>
     </Modal>
-    );
+  );
 }
 
 export default AboutModal;
