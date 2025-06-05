@@ -33,10 +33,13 @@ const NavButton = styled.div`
     }
 
     @media (max-width: 768px) {
+        touch-action: none;
         height: 125px;
         width: 125px;
-        bottom: ${(props) => props.y}px;
-        right: ${(props) => props.x}px;
+        bottom: unset;
+        right: unset;
+        left: ${(props) => props.x}px;
+        top: ${(props) => props.y}px;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.90);
     }
@@ -59,8 +62,10 @@ const NavUnlisted = styled.div`
     z-index: 999;
 
     @media (max-width: 768px) {
-        bottom: ${(props) => `calc(${props.y}px + 125px + 10px)`};
-        right: ${(props) => `${props.x}px`};
+        bottom: unset;
+        right: unset;
+        left: ${(props) => props.x}px;
+        top: ${(props) => props.y - 135}px;
     }
 `;
 
@@ -124,10 +129,11 @@ function PageMenu() {
     const handleTouchMove = (e) => {
         if (!isDragging) return;
 
+        e.preventDefault();
         const touch = e.touches[0];
         setPosition({
-            x: window.innerWidth - touch.clientX - 60, // Adjust to center the button
-            y: window.innerHeight - touch.clientY - 60,
+            x: Math.min(Math.max(touch.clientX - 62.5, 0), window.innerWidth - 125),
+            y: Math.min(Math.max(touch.clientY - 62.5, 0), window.innerHeight - 125),
         });
     };
 
