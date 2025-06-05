@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components'
 import { menuContext } from "../App";
@@ -36,12 +36,13 @@ const NavButton = styled.div`
         touch-action: none;
         height: 125px;
         width: 125px;
-        bottom: unset;
-        right: unset;
-        left: ${(props) => props.x}px;
-        top: ${(props) => props.y}px;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.90);
+        bottom: unset;
+        right: unset;
+        left: 0;
+        top: 0;
+        transition: none;
     }
 `;
 
@@ -64,8 +65,9 @@ const NavUnlisted = styled.div`
     @media (max-width: 768px) {
         bottom: unset;
         right: unset;
-        left: ${(props) => props.x}px;
-        top: ${(props) => props.y - 135}px;
+        left: 0;
+        top: 0;
+        transition: none;
     }
 `;
 
@@ -119,26 +121,44 @@ function PageMenu() {
     let [menuState, setMenuState] = useState(Close);
 
     /**For dragging menu on mobile */
-    const [position, setPosition] = useState({ x: 15, y: 15 });
-    const [isDragging, setIsDragging] = useState(false);
+    const isMobile = window.innerWidth <= 768;
+    const buttonRef = useRef(null);
+    const offset = useRef({ x: 0, y: 0 });
+    const [dragging, setDragging] = useState(false);
+    const [position, setPosition] = useState({ x: 15, y: 15 }); // Default starting pos
 
     const handleTouchStart = (e) => {
-        setIsDragging(true);
+        const touch = e.touches[0];
+        const rect = buttonRef.current.getBoundingClientRect();
+            offset.current = {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top,
+        };
+        setDragging(true);
     };
 
     const handleTouchMove = (e) => {
-        if (!isDragging) return;
-
+        if (!dragging) return;
         e.preventDefault();
         const touch = e.touches[0];
-        setPosition({
-            x: Math.min(Math.max(touch.clientX - 62.5, 0), window.innerWidth - 125),
-            y: Math.min(Math.max(touch.clientY - 62.5, 0), window.innerHeight - 125),
-        });
+        const x = touch.clientX - offset.current.x;
+        const y = touch.clientY - offset.current.y;
+
+        // Clamp to viewport
+        const maxX = window.innerWidth - 125;
+        const maxY = window.innerHeight - 125;
+
+        const clampedX = Math.max(0, Math.min(x, maxX));
+        const clampedY = Math.max(0, Math.min(y, maxY));
+
+        buttonRef.current.style.setProperty("--x", `${clampedX}px`);
+        buttonRef.current.style.setProperty("--y", `${clampedY}px`);
+
+        setPosition({ x: clampedX, y: clampedY });
     };
 
     const handleTouchEnd = () => {
-        setIsDragging(false);
+        setDragging(false);
     };
 
     const openMenu = () => {
@@ -157,14 +177,29 @@ function PageMenu() {
 
     return (
         <div>
-            <NavButton onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}
-                    x={position.x} y={position.y} onClick={toggleMenu} onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+            <NavButton
+                ref={buttonRef}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onClick={toggleMenu}
+                style={isMobile ? { transform: `translate(${position.x}px, ${position.y}px)` } : {}}
+                {...(!isMobile && {
+                    onMouseEnter: openMenu,
+                    onMouseLeave: closeMenu,
+                })}
+            >
                 <img src={menuState} alt='Page Menu' />
                 <p>Menu</p>
             </NavButton>
             { showMenu ? 
                 <NavUnlisted 
-                    x={position.x} y={position.y} onClick={closeMenu} onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+                    onClick={closeMenu}
+                    style={isMobile ? { transform: `translate(${position.x}px, ${position.y - 135}px)` } : {}}
+                    {...(!isMobile && {
+                    onMouseEnter: openMenu,
+                    onMouseLeave: closeMenu
+                })}>
                     <StyledLink to="/">
                         <span>{'\u25B6'}</span>
                         <p>Home</p>
