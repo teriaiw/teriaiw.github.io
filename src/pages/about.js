@@ -1,5 +1,6 @@
 import styles from './About.module.css';
 import { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { menuContext } from '../App';
 import { avatarContext } from '../App';
 import { useContext } from "react";
@@ -10,6 +11,7 @@ function About() {
 
     const {setActivePage} = useContext(menuContext);
     setActivePage("about");
+    const navigate = useNavigate();
 
     const {setAvatarState} = useContext(avatarContext);
     let[selectedAvatar, setSelectedAvatar] = useState('');
@@ -34,8 +36,9 @@ function About() {
         const el = scrollRef.current;
         if (!el) return;
         
-        setShowLeftArrow(el.scrollLeft > 0);
-        setShowRightArrow(el.scrollLeft + el.clientWidth < el.scrollWidth);
+        const tolerance = 5;
+        setShowLeftArrow(el.scrollLeft > tolerance);
+        setShowRightArrow(el.scrollLeft + el.clientWidth < el.scrollWidth - tolerance);
     };
       
 
@@ -93,6 +96,12 @@ function About() {
                             </button>
                         )}
                     </div>
+
+                    {selectedAvatar &&
+                        <button className={styles.continueButton} onClick={() => navigate("/my-skills")}>
+                            Confirm
+                        </button>
+                    }
                 </div>
 
                 <div className={styles.item3} />

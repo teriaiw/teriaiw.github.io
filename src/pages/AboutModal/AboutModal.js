@@ -11,12 +11,16 @@ function AboutModal({isOpen, onClose, avatar}) {
 
   return (
     <Modal
-      overlayClassName={styles.modalOverlay}
       className={`${styles.modalContent} ${styles.modalContentScrollbar}`}
       isOpen={isOpen}
       contentLabel="Modal"
       closeOnOverlayClick={true}
-      onRequestClose={onClose} 
+      onRequestClose={onClose}
+      style={{ overlay: {
+        position: 'fixed',
+        backgroundColor: 'rgba(255, 255, 255, 0.55)',
+        zIndex: 1000
+      }}}
     >
       <button className={styles.modalCloseButton} onClick={onClose}>
         <FontAwesomeIcon icon="fa-solid fa-xmark" size="2xl" style={{color: "#ffffff",}} />
