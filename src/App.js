@@ -3,6 +3,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react';
 import WebFont from 'webfontloader';
+import ScrollToTop from './utils/ScrollToTop';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ function App() {
     <menuContext.Provider value={{activePage, setActivePage}}>
       <avatarContext.Provider value={{avatarState, setAvatarState}}>
       <BrowserRouter>
+        <ScrollToTop/>
         <Routes>
           <Route
             element={(
