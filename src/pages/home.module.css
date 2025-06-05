@@ -61,16 +61,12 @@
   .gridContainer {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 40px 20px;
     gap: 0px;
   }
 
   .item1, .item2, .item3, .item4, .item5 {
     grid-column: 1 / -1;
-  }
-
-  .item1 {
-    height: 30px;
   }
 
   .item3, .item5 {
