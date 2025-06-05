@@ -14,7 +14,8 @@ function Terminal() {
         const typed = new Typed(el.current, {
             strings: [terminalMessage],
             typeSpeed: 50,
-            startDelay: 50
+            startDelay: 50,
+            html: true
         });
 
         return () => {
@@ -23,7 +24,7 @@ function Terminal() {
           };
     }, [terminalMessage]);
 
-    return (  
+    return (
         <div class="terminal">
             <span className="terminal-message" ref={el} />
         </div>

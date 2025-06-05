@@ -65,8 +65,18 @@
     font-size: 34px;
     font-family: "Pixelify Sans";
     color: #ffffff;
+    line-height: 1;
+    padding-left: 2px;
 }
 
+.terminal-message a {
+    color: #99e0fc;
+    text-decoration: underline;
+}
+
+.terminal-message a:hover {
+    color: #8cbec2;
+}
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {

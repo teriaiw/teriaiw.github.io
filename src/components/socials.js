@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function Socials() {
     const {setTerminalMessage} = useContext(terminalContext);
 
-    const linkedInMessage = "connect @teri-aiw";
-    const gitHubMessage = "add @teriaiw";
-    const emailMessage ="mail teri_ajm@hotmail.com";
+    const linkedInMessage = 'connect <a href="https://www.linkedin.com/in/teri-aiw" target="_blank">@teri-aiw</a>';
+    const gitHubMessage = 'add <a href="https://github.com/teriaiw" target="_blank">@teriaiw</a>';
+    const emailMessage = 'mail <a href="mailto:teri_ajm@hotmail.com">teri_ajm@hotmail.com</a>';
 
     return (
         <div style={{display: 'flex', margin: '0 10px'}}>
