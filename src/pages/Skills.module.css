@@ -28,6 +28,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .item3 {
@@ -216,7 +217,7 @@ h1 {
     grid-column: auto !important;
     margin: 0;
     width: 100%;
-    padding: 10px 10px 40px 10px;
+    padding-bottom: 40px;
     justify-self: center;
     align-items: center;
   }
