@@ -6,7 +6,9 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));;
   gap: 20px;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
   background-color: #ffffe6;
 }
   
@@ -165,6 +167,7 @@ h1 {
   align-items: center;
   gap: 8px;
   transition: border-style 0.3s, background 0.3s;
+  touch-action: manipulation;
 }
 
 .skillButton span {
@@ -178,6 +181,7 @@ h1 {
   border-style: dashed;
 }
 
+.skillButton:active p,
 .skillButton:focus p {
   color: palevioletred;
   border-style: solid;
@@ -185,6 +189,7 @@ h1 {
   background: white;
 }
 
+.skillButton:active span,
 .skillButton:focus span,
 .skillButton:hover span {
   color: palevioletred;

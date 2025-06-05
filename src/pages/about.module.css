@@ -48,10 +48,9 @@ h1 {
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  height: 50%;
-  gap: 20px;
-  margin: 40px 0px;
-  padding: 20px 50px;
+  min-height: 330px;
+  gap: 10px;
+  margin: 40px 60px;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -76,10 +75,10 @@ h1 {
 }
 
 .avatarContainer {
-  min-width: 150px;
-  max-width: 100%;
+  min-width: 280px;
+  min-height: 280px;
+  max-height: 50vh;
   flex-shrink: 0;
-  height: 90%;
   margin: 15px;
   display: block;
   align-items: center;
@@ -93,12 +92,11 @@ h1 {
 }
 
 .avatarContainerSelected {
-  min-width: 150px;
+  min-width: 280px;
+  min-height: 280px;
   flex-shrink: 0;
-  height: 90%;
-  margin: 10px;
   border: 10px;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   border-style: dashed;

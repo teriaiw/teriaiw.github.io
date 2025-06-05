@@ -69,6 +69,10 @@
     grid-column: 1 / -1;
   }
 
+  .item1 {
+    height: 30px;
+  }
+
   .item3, .item5 {
     display: none;
   }

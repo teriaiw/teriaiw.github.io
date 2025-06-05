@@ -104,7 +104,7 @@ function Skills() {
                     <h1>Check My Skills</h1>
                     <div className={styles.wrapper}>
                         {skills.map(skill => (
-                            <button className={styles.skillButton} key={skill} onFocus={() => setInfo(skill)} onBlur={setDefault}>
+                            <button className={styles.skillButton} tabIndex="0" key={skill} onFocus={() => setInfo(skill)} onBlur={setDefault}>
                                 <span>{'\u25B6'}</span><p>{skill}</p>
                             </button>
                         ))}

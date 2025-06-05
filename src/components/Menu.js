@@ -56,6 +56,10 @@ const StyledLink = styled(NavLink)`
 
   @media only screen and (max-width: 768px) {
     margin: 5px;
+
+    p {
+      font-size: 22px;
+    }
   }
 `;
 
